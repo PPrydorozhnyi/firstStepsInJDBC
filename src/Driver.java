@@ -22,13 +22,19 @@ public class Driver {
 
             myStmnt.executeUpdate(sql);
 
+            sql = "UPDATE customers SET email = 'testerino@gmail.com'" +
+                    "WHERE id = 3";
+
+            myStmnt.executeUpdate(sql);
+
 
             ResultSet myRs = myStmnt.executeQuery("SELECT * FROM customers");
 
             //process the result set
 
             while (myRs.next()) {
-                System.out.println(myRs.getString("firstName") + " " + myRs.getString("lastName"));
+                System.out.println(myRs.getString("firstName") + " " + myRs.getString("lastName")
+                        + " " + myRs.getString("email"));
             }
 
         } catch (Exception e) {
