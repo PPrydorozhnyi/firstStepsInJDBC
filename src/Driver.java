@@ -17,6 +17,12 @@ public class Driver {
             Statement myStmnt = myConn.createStatement();
 
             //execute SQL query
+            String sql = "INSERT INTO customers(firstName, lastName)" +
+                    "VALUES ('David', 'Brown')";
+
+            myStmnt.executeUpdate(sql);
+
+
             ResultSet myRs = myStmnt.executeQuery("SELECT * FROM customers");
 
             //process the result set
