@@ -17,16 +17,19 @@ public class Driver {
             Statement myStmnt = myConn.createStatement();
 
             //execute SQL query
-            String sql = "INSERT INTO customers(firstName, lastName)" +
+            String sql; /*= "INSERT INTO customers(firstName, lastName)" +
                     "VALUES ('David', 'Brown')";
 
-            myStmnt.executeUpdate(sql);
+            myStmnt.executeUpdate(sql);*/
 
             sql = "UPDATE customers SET email = 'testerino@gmail.com'" +
                     "WHERE id = 3";
 
             myStmnt.executeUpdate(sql);
 
+            sql = "DELETE FROM customers WHERE lastName = 'Brown'";
+
+            int rowsAffected = myStmnt.executeUpdate(sql);
 
             ResultSet myRs = myStmnt.executeQuery("SELECT * FROM customers");
 
@@ -36,6 +39,8 @@ public class Driver {
                 System.out.println(myRs.getString("firstName") + " " + myRs.getString("lastName")
                         + " " + myRs.getString("email"));
             }
+
+            System.out.println(rowsAffected + " rows affected");
 
         } catch (Exception e) {
             e.printStackTrace();
