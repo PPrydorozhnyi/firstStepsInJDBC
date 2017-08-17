@@ -42,7 +42,8 @@ public class IncreaseSalary {
 
         Statement myStmt = myConn.createStatement();
 
-        ResultSet myRs = myStmt.executeQuery("SELECT * FROM employees;");
+        ResultSet myRs = myStmt.executeQuery("SELECT * FROM employees " +
+                "WHERE department = '" + theDepartment + "';");
 
         while (myRs.next()) {
             String lastName = myRs.getString("last_name");
